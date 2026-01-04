@@ -13,6 +13,20 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // Habilitar el uso de archivos estáticos desde wwwroot
+app.Use(async(context, next) => // Middleware para redirigir la raíz a index.html
+{
+   if (context.Request.Path == "/")
+   {
+     context.Response.Redirect("/index.html"); // Redirigir a index.html
+   }  else
+    {
+        await next(); // Continuar con el siguiente middleware
+    }
+});
+
+    
+
 
 var summaries = new[]
 {
