@@ -12,7 +12,7 @@ public class WeatherForecastController
       "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
   };
   [HttpGet]
-  public IEnumerable<WeatherForecast> Get()
+  public static IEnumerable<WeatherForecast> Get()
   {
     return Enumerable.Range(1, 5).Select(index =>
       new WeatherForecast
